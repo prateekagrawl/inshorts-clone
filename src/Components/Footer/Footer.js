@@ -5,10 +5,8 @@ const Footer = () => {
     return (
         <div className="footer">
             <span className="name">
-              Inshorts clone made by -
-             Prateek Agrawal
+              Reach out to me on 👇
             </span>
-        <hr style={{ width: "90%" }} />
         <div className="iconContainer">
             <a href="https://github.com/prateekagrawl/inshorts-clone" target="__blank">
             <i className="fab fa-github fa-2x"> </i>
