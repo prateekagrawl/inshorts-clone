@@ -1,5 +1,3 @@
-import { Category } from "@material-ui/icons"
-
 const categories=[
     "business",
     "entertainment",
