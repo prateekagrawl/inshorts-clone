@@ -6,13 +6,14 @@ import NewsContainer from './Components/NewsContainer/NewsContainer';
 import Footer from './Components/Footer/Footer';
 
 function App() {
-  const [category, setCategory] = useState("general")
+  const [category, setCategory] = useState("general") 
   const [newsArray, setNewsArray] = useState([]) //for all the news
   const [newsResults, setNewsResults] = useState(); //to store total no. results shown by our api
+  const [loadmore, setLoadmore] = useState(20);
 
   const newsApi= async () => {
     try {
-      const news= await axios.get(`https://newsapi.org/v2/top-headlines?country=in&apiKey=a4707122fa594594b60149cc7898a41e&category=${category}`);
+      const news= await axios.get(`https://newsapi.org/v2/top-headlines?country=in&apiKey=a4707122fa594594b60149cc7898a41e&category=${category}&pageSize=${loadmore}`);
       
       setNewsArray(news.data.articles);
       setNewsResults(news.data.totalResults);
@@ -25,14 +26,14 @@ function App() {
 console.log(newsArray);
 
   useEffect(() => {
-    newsApi();
-  }, [newsResults, category]);
+    newsApi(); // eslint-disable-next-line
+  }, [newsResults, category, loadmore]);
 
 
   return (
     <div className="App">
       <NavigationBar setCategory={setCategory}/>
-      <NewsContainer newsArray={newsArray} newsResults={newsResults} />
+      <NewsContainer newsArray={newsArray} newsResults={newsResults} loadmore={loadmore} setLoadmore={setLoadmore} />
       <Footer />
       </div>
   );
