@@ -9,7 +9,6 @@ function App() {
   const [category, setCategory] = useState("general") 
   const [newsArray, setNewsArray] = useState([]) //for all the news
   const [newsResults, setNewsResults] = useState(); //to store total no. results shown by our api
-  const [loadmore, setLoadmore] = useState(15);
 
   const newsApi= async () => {
     try {
@@ -17,7 +16,7 @@ function App() {
       
       setNewsArray(news.data.articles);
       setNewsResults(news.data.totalResults);
-      
+
     } catch (error) {
       console.log(error);
     }
@@ -27,13 +26,13 @@ console.log(newsArray);
 
   useEffect(() => {
     newsApi(); // eslint-disable-next-line
-  }, [newsResults, category, loadmore]);
+  }, [newsResults, category]);
 
 
   return (
     <div className="App">
       <NavigationBar setCategory={setCategory}/>
-      <NewsContainer newsArray={newsArray} newsResults={newsResults} loadmore={loadmore} setLoadmore={setLoadmore} />
+      <NewsContainer newsArray={newsArray} newsResults={newsResults} />
       <Footer />
       </div>
   );
