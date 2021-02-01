@@ -10,7 +10,7 @@ const Footer = () => {
             </span>
         <hr style={{ width: "90%" }} />
         <div className="iconContainer">
-            <a href="https://github.com/prateekagrawl" target="__blank">
+            <a href="https://github.com/prateekagrawl/inshorts-clone" target="__blank">
             <i className="fab fa-github fa-2x"> </i>
             </a>
             <a href="https://www.linkedin.com/in/prateek-agrawal-56b63b16b/" target="__blank">
