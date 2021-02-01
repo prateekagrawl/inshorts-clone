@@ -9,15 +9,15 @@ function App() {
   const [category, setCategory] = useState("general") 
   const [newsArray, setNewsArray] = useState([]) //for all the news
   const [newsResults, setNewsResults] = useState(); //to store total no. results shown by our api
-  const [loadmore, setLoadmore] = useState(20);
+  const [loadmore, setLoadmore] = useState(15);
 
   const newsApi= async () => {
     try {
-      const news= await axios.get(`https://newsapi.org/v2/top-headlines?country=in&apiKey=a4707122fa594594b60149cc7898a41e&category=${category}&pageSize=${loadmore}`);
+      const news= await axios.get(`https://saurav.tech/NewsAPI/top-headlines/category/${category}/in.json`);
       
       setNewsArray(news.data.articles);
       setNewsResults(news.data.totalResults);
-
+      
     } catch (error) {
       console.log(error);
     }
